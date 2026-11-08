@@ -1,0 +1,1308 @@
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+    background: #faf8f6;
+    color: #151515;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    min-height: 600px;
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(255, 253, 251, .98) 0%,
+            rgba(255, 252, 249, .94) 55%,
+            rgba(250, 244, 238, .97) 100%
+        );
+}
+
+
+/* =========================================================
+   BACKGROUND GEDUNG
+========================================================= */
+
+.building-bg {
+    position: absolute;
+
+    left: 0;
+    right: 0;
+    bottom: -5%;
+
+    width: 100%;
+    height: 63%;
+
+    background-image:
+        linear-gradient(
+            to bottom,
+            rgba(255, 252, 249, .10),
+            rgba(255, 252, 249, .80)
+        ),
+        url("../img/background.png");
+
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    background-size: cover;
+
+    opacity: .23;
+
+    pointer-events: none;
+
+    z-index: 1;
+
+    animation:
+        buildingAppear 1.5s ease both;
+}
+
+
+/* =========================================================
+   TOPBAR
+========================================================= */
+
+.topbar {
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    min-height: 95px;
+
+    padding: 22px 50px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    z-index: 30;
+
+    animation:
+        topbarAppear .9s ease both;
+}
+
+
+/* =========================================================
+   BRAND
+========================================================= */
+
+.brand-mini {
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+
+    animation:
+        brandAppear 1s ease forwards;
+}
+
+
+/* =========================================================
+   LOGO WALI KOTA MEDAN
+   UKURAN KECIL
+========================================================= */
+
+.brand-logo {
+    width: 38px;
+    height: 38px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    transition:
+        transform .3s ease,
+        filter .3s ease;
+}
+
+.brand-logo img {
+    width: 38px;
+    height: 38px;
+
+    object-fit: contain;
+
+    display: block;
+
+    filter:
+        drop-shadow(
+            0 3px 6px
+            rgba(0, 0, 0, .10)
+        );
+
+    animation:
+        logoTopIn
+        .8s
+        cubic-bezier(.16, 1, .3, 1)
+        both;
+}
+
+.brand-logo:hover {
+    transform:
+        translateY(-2px)
+        scale(1.05);
+}
+
+.brand-logo:hover img {
+    filter:
+        drop-shadow(
+            0 6px 10px
+            rgba(149, 20, 38, .15)
+        );
+}
+
+
+/* =========================================================
+   BRAND TEXT
+========================================================= */
+
+.brand-text {
+    display: flex;
+    flex-direction: column;
+
+    line-height: 1.05;
+}
+
+.brand-text span {
+    font-size: 8px;
+
+    font-weight: 700;
+
+    letter-spacing: .25px;
+}
+
+.brand-text strong {
+    color: #8f1322;
+
+    font-size: 11px;
+
+    line-height: 1.05;
+
+    font-weight: 800;
+
+    letter-spacing: -.1px;
+}
+
+.brand-text small {
+    margin-top: 3px;
+
+    font-size: 6px;
+
+    font-weight: 600;
+
+    letter-spacing: .25px;
+
+    color: #555;
+}
+
+
+/* =========================================================
+   NAVIGATION
+========================================================= */
+
+.navigation {
+    display: flex;
+    align-items: center;
+
+    gap: 26px;
+}
+
+.navigation a {
+    position: relative;
+
+    text-decoration: none;
+
+    color: #242424;
+
+    font-size: 12px;
+
+    font-weight: 500;
+
+    transition:
+        color .25s ease,
+        transform .25s ease;
+}
+
+.navigation a:not(.nav-login)::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    bottom: -6px;
+
+    width: 0;
+    height: 2px;
+
+    background: #a51427;
+
+    transition:
+        width .3s ease;
+}
+
+.navigation a:not(.nav-login):hover {
+    color: #a51427;
+
+    transform:
+        translateY(-2px);
+}
+
+.navigation a:not(.nav-login):hover::after {
+    width: 100%;
+}
+
+
+/* =========================================================
+   LOGIN NAV BUTTON
+========================================================= */
+
+.nav-login {
+    min-width: 90px;
+
+    height: 40px;
+
+    padding: 0 18px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border:
+        1.5px solid #951426;
+
+    border-radius: 8px;
+
+    color: #941426 !important;
+
+    font-weight: 600 !important;
+
+    background:
+        rgba(255, 255, 255, .55);
+
+    box-shadow:
+        0 5px 15px
+        rgba(149, 20, 38, .04);
+
+    overflow: hidden;
+
+    transition:
+        background .3s ease,
+        color .3s ease,
+        transform .3s ease,
+        box-shadow .3s ease;
+}
+
+.nav-login::before {
+    content: "";
+
+    position: absolute;
+
+    left: -120%;
+    top: 0;
+
+    width: 80%;
+    height: 100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,.35),
+            transparent
+        );
+
+    transform:
+        skewX(-20deg);
+
+    transition:
+        left .6s ease;
+}
+
+.nav-login:hover {
+    background: #951426;
+
+    color: #fff !important;
+
+    transform:
+        translateY(-3px);
+
+    box-shadow:
+        0 10px 23px
+        rgba(149, 20, 38, .18);
+}
+
+.nav-login:hover::before {
+    left: 140%;
+}
+
+
+/* =========================================================
+   HERO CONTENT
+========================================================= */
+
+.hero-content {
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+
+    transform:
+        translate(-50%, -48%);
+
+    width:
+        min(850px, 90vw);
+
+    text-align: center;
+
+    z-index: 20;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    will-change: transform;
+}
+
+
+/* =========================================================
+   TYPING
+========================================================= */
+
+.typing-wrapper {
+    min-height: 70px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.typing-title {
+    min-height: 65px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #941426;
+
+    font-size:
+        clamp(28px, 3.1vw, 48px);
+
+    font-weight: 800;
+
+    line-height: 1.08;
+
+    letter-spacing: -1.5px;
+
+    text-transform: uppercase;
+
+    text-shadow:
+        0 3px 20px
+        rgba(148, 20, 38, .05);
+}
+
+.cursor {
+    display: inline-block;
+
+    margin-left: 4px;
+
+    color: #941426;
+
+    font-weight: 400;
+
+    animation:
+        cursorBlink .7s infinite;
+}
+
+
+/* =========================================================
+   DESCRIPTION
+========================================================= */
+
+.hero-description {
+    margin-top: 8px;
+
+    color: #292929;
+
+    font-size:
+        clamp(13px, 1.2vw, 17px);
+
+    line-height: 1.9;
+
+    font-weight: 400;
+
+    opacity: 0;
+
+    animation:
+        descriptionAppear
+        1s ease .8s forwards;
+}
+
+
+/* =========================================================
+   BUTTONS
+========================================================= */
+
+.hero-buttons {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 18px;
+
+    margin-top: 25px;
+
+    opacity: 0;
+
+    animation:
+        buttonsAppear
+        .9s ease 1s forwards;
+}
+
+.btn {
+    position: relative;
+
+    height: 55px;
+
+    min-width: 185px;
+
+    padding: 0 25px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 10px;
+
+    border-radius: 10px;
+
+    text-decoration: none;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    letter-spacing: .2px;
+
+    overflow: hidden;
+
+    transition:
+        transform .3s ease,
+        box-shadow .3s ease,
+        background .3s ease;
+}
+
+.btn::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: -120%;
+
+    width: 80%;
+    height: 100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,.22),
+            transparent
+        );
+
+    transform:
+        skewX(-20deg);
+
+    transition:
+        left .65s ease;
+}
+
+.btn:hover::before {
+    left: 140%;
+}
+
+.btn-primary {
+    color: #fff;
+
+    background: #a9162b;
+
+    border:
+        1px solid #a9162b;
+
+    box-shadow:
+        0 10px 25px
+        rgba(169, 22, 43, .16);
+}
+
+.btn-primary:hover {
+    background: #861322;
+
+    transform:
+        translateY(-5px);
+
+    box-shadow:
+        0 16px 32px
+        rgba(169, 22, 43, .25);
+}
+
+.btn-outline {
+    color: #951426;
+
+    background:
+        rgba(255,255,255,.5);
+
+    border:
+        1.5px solid #951426;
+}
+
+.btn-outline:hover {
+    background: #951426;
+
+    color: #fff;
+
+    transform:
+        translateY(-5px);
+
+    box-shadow:
+        0 15px 30px
+        rgba(169,22,43,.15);
+}
+
+.btn-icon {
+    font-size: 16px;
+
+    transition:
+        transform .3s ease;
+}
+
+.btn:hover .btn-icon {
+    transform:
+        scale(1.15)
+        rotate(-5deg);
+}
+
+
+/* =========================================================
+   MAKANAN TERBANG
+========================================================= */
+
+.floating-foods {
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    overflow: hidden;
+
+    z-index: 8;
+
+    pointer-events: none;
+}
+
+.food {
+    position: absolute;
+
+    width: 65px;
+    height: 65px;
+
+    object-fit: contain;
+
+    pointer-events: auto;
+
+    cursor: pointer;
+
+    user-select: none;
+
+    will-change:
+        transform;
+
+    filter:
+        drop-shadow(
+            0 8px 7px
+            rgba(0,0,0,.10)
+        );
+
+    opacity: 0;
+
+    animation:
+        foodFly linear infinite,
+        foodFloat ease-in-out infinite;
+}
+
+
+/* =========================================================
+   FOOD POSITIONS
+========================================================= */
+
+.food-1 {
+    left: 10%;
+
+    width: 66px;
+    height: 66px;
+
+    animation-duration:
+        13s, 2.8s;
+
+    animation-delay:
+        0s, 0s;
+}
+
+.food-2 {
+    left: 25%;
+
+    width: 62px;
+    height: 62px;
+
+    animation-duration:
+        16s, 3.1s;
+
+    animation-delay:
+        -6s, -1s;
+}
+
+.food-3 {
+    left: 38%;
+
+    width: 69px;
+    height: 69px;
+
+    animation-duration:
+        14s, 2.7s;
+
+    animation-delay:
+        -10s, -2s;
+}
+
+.food-4 {
+    left: 52%;
+
+    width: 60px;
+    height: 60px;
+
+    animation-duration:
+        17s, 3.4s;
+
+    animation-delay:
+        -3s, -1.5s;
+}
+
+.food-5 {
+    left: 67%;
+
+    width: 65px;
+    height: 65px;
+
+    animation-duration:
+        15s, 2.9s;
+
+    animation-delay:
+        -8s, -.5s;
+}
+
+.food-6 {
+    left: 82%;
+
+    width: 64px;
+    height: 64px;
+
+    animation-duration:
+        18s, 3.2s;
+
+    animation-delay:
+        -13s, -2s;
+}
+
+.food-7 {
+    left: 5%;
+
+    width: 58px;
+    height: 58px;
+
+    animation-duration:
+        19s, 2.8s;
+
+    animation-delay:
+        -15s, -1s;
+}
+
+.food-8 {
+    left: 31%;
+
+    width: 56px;
+    height: 56px;
+
+    animation-duration:
+        15s, 3.5s;
+
+    animation-delay:
+        -5s, -2s;
+}
+
+.food-9 {
+    left: 47%;
+
+    width: 63px;
+    height: 63px;
+
+    animation-duration:
+        20s, 3s;
+
+    animation-delay:
+        -12s, -1s;
+}
+
+.food-10 {
+    left: 73%;
+
+    width: 58px;
+    height: 58px;
+
+    animation-duration:
+        16s, 3.3s;
+
+    animation-delay:
+        -2s, -2s;
+}
+
+.food-11 {
+    left: 89%;
+
+    width: 64px;
+    height: 64px;
+
+    animation-duration:
+        19s, 2.9s;
+
+    animation-delay:
+        -9s, -1.5s;
+}
+
+.food-12 {
+    left: 18%;
+
+    width: 62px;
+    height: 62px;
+
+    animation-duration:
+        18s, 3.6s;
+
+    animation-delay:
+        -16s, -2.5s;
+}
+
+
+/* =========================================================
+   FOOD ANIMATION
+========================================================= */
+
+@keyframes foodFly {
+
+    0% {
+        top: 110%;
+
+        opacity: 0;
+
+        transform:
+            translate3d(
+                var(--mouse-x, 0px),
+                var(--mouse-y, 0px),
+                0
+            )
+            rotate(-10deg)
+            scale(.75);
+    }
+
+    8% {
+        opacity: 1;
+    }
+
+    25% {
+        transform:
+            translate3d(
+                var(--mouse-x, 0px),
+                var(--mouse-y, 0px),
+                0
+            )
+            rotate(8deg)
+            scale(1);
+    }
+
+    50% {
+        transform:
+            translate3d(
+                var(--mouse-x, 0px),
+                var(--mouse-y, 0px),
+                0
+            )
+            rotate(-8deg)
+            scale(1.03);
+    }
+
+    75% {
+        transform:
+            translate3d(
+                var(--mouse-x, 0px),
+                var(--mouse-y, 0px),
+                0
+            )
+            rotate(7deg)
+            scale(.98);
+    }
+
+    92% {
+        opacity: 1;
+    }
+
+    100% {
+        top: -15%;
+
+        opacity: 0;
+
+        transform:
+            translate3d(
+                var(--mouse-x, 0px),
+                var(--mouse-y, 0px),
+                0
+            )
+            rotate(-5deg)
+            scale(.82);
+    }
+}
+
+
+@keyframes foodFloat {
+
+    0% {
+        margin-left: -7px;
+        margin-top: 0;
+    }
+
+    50% {
+        margin-left: 8px;
+        margin-top: -13px;
+    }
+
+    100% {
+        margin-left: -7px;
+        margin-top: 0;
+    }
+}
+
+
+/* =========================================================
+   BUILDING ANIMATION
+========================================================= */
+
+@keyframes buildingAppear {
+
+    from {
+        opacity: 0;
+
+        transform:
+            scale(1.05);
+    }
+
+    to {
+        opacity: .23;
+
+        transform:
+            scale(1);
+    }
+}
+
+
+/* =========================================================
+   TOPBAR ANIMATION
+========================================================= */
+
+@keyframes topbarAppear {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+}
+
+
+@keyframes brandAppear {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateX(-25px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateX(0);
+    }
+}
+
+
+@keyframes logoTopIn {
+
+    0% {
+        opacity: 0;
+
+        transform:
+            scale(.5)
+            rotate(-15deg);
+    }
+
+    70% {
+        opacity: 1;
+
+        transform:
+            scale(1.08)
+            rotate(3deg);
+    }
+
+    100% {
+        opacity: 1;
+
+        transform:
+            scale(1)
+            rotate(0);
+    }
+}
+
+
+/* =========================================================
+   DESCRIPTION ANIMATION
+========================================================= */
+
+@keyframes descriptionAppear {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+}
+
+
+/* =========================================================
+   BUTTON ANIMATION
+========================================================= */
+
+@keyframes buttonsAppear {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+}
+
+
+/* =========================================================
+   CURSOR
+========================================================= */
+
+@keyframes cursorBlink {
+
+    0%,
+    45% {
+        opacity: 1;
+    }
+
+    46%,
+    100% {
+        opacity: 0;
+    }
+}
+
+
+/* =========================================================
+   BOTTOM GLOW
+========================================================= */
+
+.bottom-glow {
+    position: absolute;
+
+    left: 50%;
+    bottom: -250px;
+
+    transform:
+        translateX(-50%);
+
+    width: 900px;
+    height: 400px;
+
+    background:
+        rgba(171, 21, 43, .08);
+
+    filter:
+        blur(80px);
+
+    border-radius: 50%;
+
+    pointer-events: none;
+
+    z-index: 2;
+
+    animation:
+        bottomGlow 7s ease-in-out infinite;
+}
+
+
+@keyframes bottomGlow {
+
+    0%,
+    100% {
+        opacity: .6;
+
+        transform:
+            translateX(-50%)
+            scale(1);
+    }
+
+    50% {
+        opacity: 1;
+
+        transform:
+            translateX(-50%)
+            scale(1.08);
+    }
+}
+
+
+/* =========================================================
+   RESPONSIVE TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+
+    .topbar {
+        padding:
+            18px 25px;
+    }
+
+    .navigation {
+        gap: 15px;
+    }
+
+    .navigation a:not(.nav-login) {
+        display: none;
+    }
+
+    .brand-logo {
+        width: 34px;
+        height: 34px;
+    }
+
+    .brand-logo img {
+        width: 34px;
+        height: 34px;
+    }
+
+    .brand-text span {
+        font-size: 7px;
+    }
+
+    .brand-text strong {
+        font-size: 10px;
+    }
+
+    .brand-text small {
+        font-size: 5.5px;
+    }
+
+    .hero-description {
+        font-size: 13px;
+    }
+
+    .food {
+        width: 50px !important;
+        height: 50px !important;
+    }
+}
+
+
+/* =========================================================
+   RESPONSIVE HP
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .hero {
+        min-height: 600px;
+    }
+
+    .topbar {
+        height: 75px;
+
+        padding:
+            12px 17px;
+    }
+
+    .brand-mini {
+        gap: 7px;
+    }
+
+    .brand-logo {
+        width: 30px;
+        height: 30px;
+    }
+
+    .brand-logo img {
+        width: 30px;
+        height: 30px;
+    }
+
+    .brand-text span {
+        font-size: 5.5px;
+    }
+
+    .brand-text strong {
+        font-size: 7.5px;
+    }
+
+    .brand-text small {
+        font-size: 4px;
+    }
+
+    .nav-login {
+        min-width: 75px;
+
+        height: 35px;
+
+        padding:
+            0 12px;
+
+        font-size: 9px !important;
+    }
+
+    .hero-content {
+        width: 94vw;
+    }
+
+    .typing-wrapper {
+        min-height: 56px;
+    }
+
+    .typing-title {
+        min-height: 56px;
+
+        font-size: 23px;
+
+        letter-spacing: -.8px;
+    }
+
+    .hero-description {
+        margin-top: 5px;
+
+        font-size: 10px;
+
+        line-height: 1.65;
+    }
+
+    .hero-buttons {
+        gap: 8px;
+
+        margin-top: 18px;
+    }
+
+    .btn {
+        min-width: 145px;
+
+        height: 47px;
+
+        padding:
+            0 12px;
+
+        font-size: 9px;
+    }
+
+    .btn-icon {
+        font-size: 13px;
+    }
+
+    .food {
+        width: 42px !important;
+        height: 42px !important;
+    }
+
+    .building-bg {
+        height: 50%;
+    }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration:
+            .01ms !important;
+
+        animation-iteration-count:
+            1 !important;
+
+        transition-duration:
+            .01ms !important;
+    }
+}
