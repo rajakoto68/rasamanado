@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+
+<html lang="id">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        Login | Walikota Medan
+    </title>
+
+
+    <link
+        rel="stylesheet"
+        href="assets/css/login.css"
+    >
+
+    <link rel="stylesheet" href="assets/css/responsive.css">
+</head>
+
+
+<body>
+
+
+<div class="login-page">
+
+
+    <!-- =================================================
+         BAGIAN KIRI
+    ================================================= -->
+
+    <div class="login-left">
+
+
+        <div class="brand">
+
+
+            <img
+                src="assets/img/logo.png"
+                alt="Logo Walikota Medan"
+            >
+
+
+            <div>
+
+                <h2>
+                    Walikota Medan
+                </h2>
+
+
+                <span>
+                    Konsumsi Rapat
+                </span>
+
+            </div>
+
+
+        </div>
+
+
+
+        <div class="left-content">
+
+
+            <p class="small-title">
+                SISTEM KONSUMSI RAPAT
+            </p>
+
+
+            <h1>
+
+                Kelola kebutuhan
+                konsumsi rapat
+                dengan mudah.
+
+            </h1>
+
+
+            <p class="description">
+
+                Sistem informasi untuk membantu
+                pegawai mengajukan kebutuhan
+                konsumsi rapat dan memudahkan
+                Admin dalam mengelola pesanan.
+
+            </p>
+
+
+        </div>
+
+
+
+        <div class="copyright">
+
+            © 2026
+            Pemerintah Kota Medan
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- =================================================
+         BAGIAN KANAN
+    ================================================= -->
+
+    <div class="login-right">
+
+
+        <div class="login-box">
+
+
+          <a href="index.html" class="back-home">
+
+        <span class="back-home-icon">
+            ←
+        </span>
+
+        <span>
+            Kembali ke Beranda
+        </span>
+
+    </a>
+
+            <!-- =================================================
+                 JUDUL
+            ================================================= -->
+
+            <div class="login-heading">
+
+
+                <h1>
+                    Selamat datang
+                </h1>
+
+
+                <p>
+
+                    Silakan masuk ke akun Anda
+                    untuk melanjutkan.
+
+                </p>
+
+
+            </div>
+
+
+
+            <!-- =================================================
+                 ERROR
+            ================================================= -->
+
+            
+
+
+
+            <!-- =================================================
+                 FORM LOGIN
+            ================================================= -->
+
+            <form id="loginForm"
+                action="auth/proses_login.php"
+                method="POST"
+                autocomplete="off"
+            >
+
+
+                <!-- USERNAME -->
+
+                <div class="form-group">
+
+
+                    <label for="username">
+
+                        Username / NIK
+
+                    </label>
+
+
+                    <input
+                        type="text"
+                        id="username"
+                        name="username"
+                        placeholder="Masukkan username atau NIK"
+                        autocomplete="username"
+                        required
+                        autofocus
+                    >
+
+
+                </div>
+
+
+
+                <!-- PASSWORD -->
+
+                <div class="form-group">
+
+
+                    <div class="label-row">
+
+
+                        <label for="password">
+
+                            Password
+
+                        </label>
+
+
+                    </div>
+
+
+
+                    <div class="password-wrapper">
+
+
+                        <input
+                            type="password"
+                            id="password"
+                            name="password"
+                            placeholder="Masukkan password"
+                            autocomplete="current-password"
+                            required
+                        >
+
+
+                        <button
+                            type="button"
+                            class="show-password"
+                            id="togglePassword"
+                            aria-label="Tampilkan password"
+                        >
+                            👁
+                        </button>
+
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- LOGIN BUTTON -->
+
+                <button
+                    type="submit"
+                    class="login-button"
+                    id="loginButton"
+                >
+
+                    <span class="button-text">
+                        Masuk
+                    </span>
+
+                    <span
+                        class="button-loading"
+                        style="display:none;"
+                    >
+                        Memproses...
+                    </span>
+
+                </button>
+
+
+            </form>
+
+
+
+            <!-- =================================================
+                 FOOTER
+            ================================================= -->
+
+            <div class="login-footer">
+
+
+                <span>
+                    Belum memiliki akun?
+                </span>
+
+
+                <a href="register.html">
+
+                    Daftar sekarang
+
+                </a>
+
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
+</div>
+
+
+
+<script>
+
+/* =====================================================
+   TOGGLE PASSWORD
+===================================================== */
+
+const passwordInput =
+    document.getElementById(
+        "password"
+    );
+
+const togglePassword =
+    document.getElementById(
+        "togglePassword"
+    );
+
+
+if (
+    passwordInput &&
+    togglePassword
+) {
+
+    togglePassword.addEventListener(
+        "click",
+        function () {
+
+
+            if (
+                passwordInput.type ===
+                "password"
+            ) {
+
+                passwordInput.type =
+                    "text";
+
+                togglePassword.textContent =
+                    "🙈";
+
+                togglePassword.setAttribute(
+                    "aria-label",
+                    "Sembunyikan password"
+                );
+
+            } else {
+
+                passwordInput.type =
+                    "password";
+
+                togglePassword.textContent =
+                    "👁";
+
+                togglePassword.setAttribute(
+                    "aria-label",
+                    "Tampilkan password"
+                );
+
+            }
+
+
+        }
+    );
+
+}
+
+
+/* =====================================================
+   ANIMASI LOGIN
+===================================================== */
+
+const loginForm =
+    document.querySelector(
+        "form"
+    );
+
+const loginButton =
+    document.getElementById(
+        "loginButton"
+    );
+
+const buttonText =
+    document.querySelector(
+        ".button-text"
+    );
+
+const buttonLoading =
+    document.querySelector(
+        ".button-loading"
+    );
+
+
+if (
+    loginForm &&
+    loginButton
+) {
+
+    loginForm.addEventListener(
+        "submit",
+        function () {
+
+
+            if (
+                buttonText &&
+                buttonLoading
+            ) {
+
+                buttonText.style.display =
+                    "none";
+
+                buttonLoading.style.display =
+                    "inline";
+
+            }
+
+
+            loginButton.disabled =
+                true;
+
+
+            loginButton.style.cursor =
+                "wait";
+
+
+        }
+    );
+
+}
+
+
+/* =====================================================
+   HILANGKAN ERROR SAAT USER MULAI MENGETIK
+===================================================== */
+
+const alertError =
+    document.querySelector(
+        ".alert-error"
+    );
+
+const usernameInput =
+    document.getElementById(
+        "username"
+    );
+
+
+if (
+    alertError &&
+    usernameInput
+) {
+
+    usernameInput.addEventListener(
+        "input",
+        function () {
+
+            alertError.style.opacity =
+                "0";
+
+            alertError.style.transform =
+                "translateY(-5px)";
+
+            alertError.style.transition =
+                "all .25s ease";
+
+
+            setTimeout(
+                function () {
+
+                    if (
+                        alertError
+                    ) {
+
+                        alertError.style.display =
+                            "none";
+
+                    }
+
+                },
+                250
+            );
+
+        }
+    );
+
+}
+
+
+/* =====================================================
+   ENTER DARI USERNAME
+===================================================== */
+
+if (usernameInput) {
+
+    usernameInput.addEventListener(
+        "keydown",
+        function (event) {
+
+            if (
+                event.key === "Enter"
+            ) {
+
+                event.preventDefault();
+
+                if (passwordInput) {
+
+                    passwordInput.focus();
+
+                }
+
+            }
+
+        }
+    );
+
+}
+
+
+/* =====================================================
+   ENTER DARI PASSWORD
+===================================================== */
+
+if (passwordInput) {
+
+    passwordInput.addEventListener(
+        "keydown",
+        function (event) {
+
+            if (
+                event.key === "Enter"
+            ) {
+
+                loginForm.submit();
+
+            }
+
+        }
+    );
+
+}
+
+</script>
+
+
+<script src="assets/js/static-forms.js"></script>
+</body>
+
+</html>
